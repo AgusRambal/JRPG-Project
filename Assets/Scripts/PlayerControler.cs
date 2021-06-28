@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerControler : MonoBehaviour
 
     void Start()
     {
+        AudioTroughScenes.Pause();
         movePoint.parent = null;
         //gameOverText.SetActive(false);
         //winText.SetActive(false);
