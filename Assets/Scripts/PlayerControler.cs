@@ -14,6 +14,8 @@ public class PlayerControler : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject casa;
+
     //public GameObject gameOverText, restartButton, winText, reloadButton;
 
     void Start()
@@ -57,18 +59,19 @@ public class PlayerControler : MonoBehaviour
             }
         }
     }
-    /*private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag.Equals("BoxDeath"))
+        if (collider.gameObject.tag.Equals("House"))
         {
-            gameOverText.SetActive(true);
-            restartButton.SetActive(true);
-            GetComponent<PlayerController>().enabled = false;
-            TimeController.instance.EndTime();
+            //gameOverText.SetActive(true);
+            //restartButton.SetActive(true);
+            //GetComponent<PlayerController>().enabled = false;
+            //TimeController.instance.EndTime();
             Debug.Log("Te toco");
+            casa.SetActive(true);
         }
-
-        if (collider.gameObject.tag.Equals("Roland"))
+    }
+       /* if (collider.gameObject.tag.Equals("Roland"))
         {
             winText.SetActive(true);
             reloadButton.SetActive(true);
