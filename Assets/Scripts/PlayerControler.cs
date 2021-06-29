@@ -12,6 +12,8 @@ public class PlayerControler : MonoBehaviour
 
     Vector2 movement;
 
+    public Animator animator;
+
     //public GameObject gameOverText, restartButton, winText, reloadButton;
 
     void Start()
@@ -28,6 +30,11 @@ public class PlayerControler : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+
 
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
