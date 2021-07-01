@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 37916346}
   - component: {fileID: 37916345}
   m_Layer: 0
-  m_Name: MenuuSound
+  m_Name: DialogueClickSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -853,7 +853,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: 309589903}
-  casa: {fileID: 1085116793}
 --- !u!212 &309589901
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1522,7 +1521,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.27
+  m_Volume: 0.2
   m_Pitch: 2.11
   Loop: 0
   Mute: 0
