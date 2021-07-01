@@ -6,7 +6,7 @@ public class Enemy : HeroesAndSlayers
 {
     private void Awake()
     {
-        this.stats = new Stats(20, 50, 40, 30, 60);
+        this.stats = new Stats(50, 50, 40, 30, 60);
     }
     public override void InitTurn()
     {

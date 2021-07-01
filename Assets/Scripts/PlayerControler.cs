@@ -58,14 +58,20 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag.Equals("House"))
+        if (collider.gameObject.tag.Equals("Battle1"))
         {
             //gameOverText.SetActive(true);
             //restartButton.SetActive(true);
             //GetComponent<PlayerController>().enabled = false;
             //TimeController.instance.EndTime();
+            SceneManager.LoadScene(5);
+        }
+
+        if (collider.gameObject.tag.Equals("Battle2"))
+        {
+            SceneManager.LoadScene(6);
         }
     }
        /* if (collider.gameObject.tag.Equals("Roland"))
