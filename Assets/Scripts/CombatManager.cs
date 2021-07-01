@@ -6,6 +6,7 @@ public enum CombatStatus
 { 
     WAITING_FOR_FIGHTER, 
     FIGHTER_ACTION, 
+    CHECK_ACTION_MESSAGES,
     CHECK_FOR_VICTORY, 
     NEXT_TURN
 }
@@ -40,7 +41,7 @@ public class CombatManager : MonoBehaviour
 
     IEnumerator CombatLoop()
     {
-        while (this.isCombatActive) //CUANDO ESTO ESTE EN 0 PUEDO CAMBIAR DE ESCENA!!
+        while (this.isCombatActive)
         {
             switch (this.combatStatus)
             {
@@ -54,10 +55,27 @@ public class CombatManager : MonoBehaviour
                     currentCharacterSkill.Run();
 
                     yield return new WaitForSeconds(1f);
-                    this.combatStatus = CombatStatus.CHECK_FOR_VICTORY;
+                    this.combatStatus = CombatStatus.CHECK_ACTION_MESSAGES;
 
-                    currentCharacterSkill = null;
                     break;
+
+                case CombatStatus.CHECK_ACTION_MESSAGES:
+
+                    string nextMessage = this.currentCharacterSkill.GetNextMessage();
+
+                    if (nextMessage != null)
+                    {
+                        LogPanel.Write(nextMessage);
+                        yield return new WaitForSeconds(2f);
+                    }
+                    else
+                    {
+                        this.currentCharacterSkill = null;
+                        this.combatStatus = CombatStatus.CHECK_FOR_VICTORY;
+                        yield return null;
+                    }
+
+                    break; 
 
                 case CombatStatus.CHECK_FOR_VICTORY:
                     foreach (var chtr in this.characters)
@@ -65,8 +83,11 @@ public class CombatManager : MonoBehaviour
                         if (chtr.isAlive == false)
                         {
                             this.isCombatActive = false;
-
+                            //ACAAAA CAMBIAR DE ESCENA
                             LogPanel.Write("Victory");
+                            yield return new WaitForSeconds(2f);
+                            LogPanel.Write("Funciona?");
+
                         }
                         else
                         {

@@ -17,7 +17,7 @@ public class StatusPanel : MonoBehaviour
     {
         this.nameLabel.text = name;
 
-        this.levelLabel.text = $"N. {stats.level}";
+        this.levelLabel.text = $"LVL {stats.level}";
         this.SetHealth(stats.health, stats.maxHealth);
     }
 

@@ -15,11 +15,18 @@ public abstract class Skill : MonoBehaviour
     protected HeroesAndSlayers emitter;
     protected HeroesAndSlayers receiver;
 
-   /* private void Animate()
+    protected Queue<string> messages;
+
+    /* private void Animate()
+     {
+         var go = Instantiate(this.effectPrfb, this.receiver.transform.position, Quaternion.identity);
+         Destroy(go, this.animationDuration);
+     }*/
+
+    private void Awake()
     {
-        var go = Instantiate(this.effectPrfb, this.receiver.transform.position, Quaternion.identity);
-        Destroy(go, this.animationDuration);
-    }*/
+        this.messages = new Queue<string>();
+    }
 
     public void Run()
     {
@@ -38,6 +45,19 @@ public abstract class Skill : MonoBehaviour
         this.emitter = _emitter;
         this.receiver = _receiver;
     }
+
+    public string GetNextMessage()
+    {
+        if (this.messages.Count !=0)
+        {
+            return this.messages.Dequeue();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     protected abstract void OnRun();
 
 }

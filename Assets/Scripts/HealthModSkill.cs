@@ -14,11 +14,21 @@ public class HealthModSkill : Skill
 
     public HealthModType modType;
 
+    [Range(0f, 6f)] public float critChance = 6; 
+
     protected override void OnRun()
     {
         float amount = this.GetModification();
 
         this.receiver.ModifyHealth(amount);
+
+        float dice = Random.Range(0f, 5f);
+
+        if (dice == critChance) //Aca podria poner diferentes danios
+        {
+            amount *= 2f;
+            this.messages.Enqueue("Critical Hit!");
+        }
     }
 
     public float GetModification()
