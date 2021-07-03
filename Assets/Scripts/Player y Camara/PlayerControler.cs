@@ -34,7 +34,6 @@ public class PlayerControler : MonoBehaviour
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
@@ -56,29 +55,4 @@ public class PlayerControler : MonoBehaviour
             }
         }
     }
-
-   /* private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag.Equals("Battle1"))
-        {
-            //gameOverText.SetActive(true);
-            //restartButton.SetActive(true);
-            //GetComponent<PlayerController>().enabled = false;
-            //TimeController.instance.EndTime();
-            SceneManager.LoadScene(5);
-        }
-
-        if (collider.gameObject.tag.Equals("Battle2"))
-        {
-            SceneManager.LoadScene(6);
-        }
-    }*/
-       /* if (collider.gameObject.tag.Equals("Roland"))
-        {
-            winText.SetActive(true);
-            reloadButton.SetActive(true);
-            GetComponent<PlayerController>().enabled = false;
-            TimeController.instance.EndTime();
-            Debug.Log("Ganaste");
-        }*/
 }

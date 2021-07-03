@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
-public class DialogueManager2 : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentences;
 
@@ -46,7 +47,6 @@ public class DialogueManager2 : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
-
     }
 
     IEnumerator TypeSentence(string sentence)

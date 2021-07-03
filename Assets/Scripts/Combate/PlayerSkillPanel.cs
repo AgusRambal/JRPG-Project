@@ -34,6 +34,4 @@ public class PlayerSkillPanel : MonoBehaviour
     {
         this.gameObject.SetActive(false);
     }
-
-
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+public class DialogueTrigger2 : MonoBehaviour
 {
     public Dialogue dialogue;
 
@@ -10,8 +10,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collider.gameObject.tag.Equals("Player"))
         {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            FindObjectOfType<DialogueManager2>().StartDialogue(dialogue);
         }
-
     }
 }

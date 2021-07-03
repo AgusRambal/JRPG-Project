@@ -14,7 +14,6 @@ public class MyersAndJasonScenes : MonoBehaviour
         anim.SetTrigger("Start");
         yield return null;
         SceneManager.LoadScene(sceneName);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -24,5 +23,4 @@ public class MyersAndJasonScenes : MonoBehaviour
             StartCoroutine(LoadScene());
         }
     }
-
 }

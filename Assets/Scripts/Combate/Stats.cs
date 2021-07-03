@@ -24,6 +24,4 @@ public class Stats
     {
         return new Stats(this.level, this.maxHealth, this.attack, this.deffense, this.spirit);
     }
-
-
 }

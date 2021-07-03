@@ -49,6 +49,5 @@ public class Enemy : HeroesAndSlayers
         this.winButton.SetActive(true);
         this.goPanel.SetActive(true);
     }
-
 }
 

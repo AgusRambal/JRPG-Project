@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager2 : MonoBehaviour
 {
     private Queue<string> sentences;
 
@@ -47,7 +46,6 @@ public class DialogueManager : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
-
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -64,5 +62,4 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
     }
-
 }

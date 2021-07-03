@@ -8,7 +8,6 @@ public class TriggerShop : MonoBehaviour
     static AudioSource audioSrc;
     public AudioClip doorSound, doorClose;
 
-
     private void Awake()
     {
         house.SetActive(false);
@@ -28,7 +27,6 @@ public class TriggerShop : MonoBehaviour
         {
             house.SetActive(false);
             audioSrc.PlayOneShot(doorClose);
-
         }
     }
 }

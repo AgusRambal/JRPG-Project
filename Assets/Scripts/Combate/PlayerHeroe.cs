@@ -60,5 +60,4 @@ public class PlayerHeroe : HeroesAndSlayers
         this.restartButton.SetActive(true);
         this.goPanel.SetActive(true);
     }
-
 }

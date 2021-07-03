@@ -20,5 +20,4 @@ public class StatusModSkill : Skill
 
         receiver.statusMods.Add(mod);
     }
-
 }

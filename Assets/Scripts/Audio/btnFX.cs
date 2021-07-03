@@ -17,6 +17,4 @@ public class btnFX : MonoBehaviour
     {
         myFX.PlayOneShot(clickFX);
     }
-
-
 }

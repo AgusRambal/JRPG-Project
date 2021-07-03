@@ -57,7 +57,6 @@ public abstract class Skill : MonoBehaviour
             return null;
         }
     }
-
     protected abstract void OnRun();
 
 }

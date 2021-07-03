@@ -33,5 +33,4 @@ public class StatusPanel : MonoBehaviour
             this.healthSliderBar.color = Color.red;
         }
     }
-
 }
