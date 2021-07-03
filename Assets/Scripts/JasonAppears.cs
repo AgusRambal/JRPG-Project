@@ -14,5 +14,4 @@ public class JasonAppears : MonoBehaviour
             jason.transform.position = teleportTarget.transform.position;
         }
     }
-
 }

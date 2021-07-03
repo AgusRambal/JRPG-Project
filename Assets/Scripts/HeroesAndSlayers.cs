@@ -48,5 +48,11 @@ public abstract class HeroesAndSlayers : MonoBehaviour
         return modedStats;
     }
 
+    protected void Die()
+    {
+        this.statusPanel.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
+    }
+
     public abstract void InitTurn();
 }

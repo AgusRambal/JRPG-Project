@@ -58,7 +58,7 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+   /* private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag.Equals("Battle1"))
         {
@@ -73,7 +73,7 @@ public class PlayerControler : MonoBehaviour
         {
             SceneManager.LoadScene(6);
         }
-    }
+    }*/
        /* if (collider.gameObject.tag.Equals("Roland"))
         {
             winText.SetActive(true);
