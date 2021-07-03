@@ -14,16 +14,11 @@ public class PlayerControler : MonoBehaviour
 
     public Animator animator;
 
-    //public GameObject gameOverText, restartButton, winText, reloadButton;
-
     void Start()
     {
         AudioTroughScenes.Pause();
         movePoint.parent = null;
-        //gameOverText.SetActive(false);
-        //winText.SetActive(false);
-        //restartButton.SetActive(false);
-        //reloadButton.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     void Update()

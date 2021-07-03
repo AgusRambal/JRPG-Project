@@ -17,6 +17,10 @@ public class CombatManager : MonoBehaviour
     public HeroesAndSlayers[] characters;
     private int characterindex;
 
+    public Enemy enemy;
+
+    public PlayerHeroe hero;
+
     private bool isCombatActive;
 
     private CombatStatus combatStatus;
@@ -78,25 +82,24 @@ public class CombatManager : MonoBehaviour
                     break; 
 
                 case CombatStatus.CHECK_FOR_VICTORY:
-                    foreach (var chtr in this.characters)
-                    {
-                        if (chtr.isAlive == false)
-                        {
-                            this.isCombatActive = false;
-                            //ACAAAA CAMBIAR DE ESCENA
-                            LogPanel.Write("Victory");
-                            yield return new WaitForSeconds(2f);
-                            LogPanel.Write("Funciona?");
 
-                        }
-                        else
-                        {
-                            this.combatStatus = CombatStatus.NEXT_TURN;
-                        }
+                    if (hero.isAlive == false)
+                    {
+                        this.isCombatActive = false;
+                        //ACAAAA CAMBIAR DE ESCENA
+                        LogPanel.Write("You Loose");
+                    }
+                    else if (enemy.isAlive == false)
+                    {
+                        LogPanel.Write("You Win");
+                    }
+                    else
+                    {
+                        this.combatStatus = CombatStatus.NEXT_TURN;
                     }
                     yield return null;
                     break;
-
+                    
                 case CombatStatus.NEXT_TURN:
                     yield return new WaitForSeconds(1f);
 

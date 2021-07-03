@@ -22,7 +22,7 @@ public class HealthModSkill : Skill
 
         this.receiver.ModifyHealth(amount);
 
-        float dice = Random.Range(0f, 5f);
+        float dice = Random.Range(0f, 6f);
 
         if (dice == critChance) //Aca podria poner diferentes danios
         {

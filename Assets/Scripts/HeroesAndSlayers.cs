@@ -15,15 +15,11 @@ public abstract class HeroesAndSlayers : MonoBehaviour
 
     protected Skill[] skills;
 
-    public bool isAlive 
-    {
-        get => this.stats.health > 0;    
-    }
-
     protected virtual void Start()
     {
         this.statusPanel.SetStats(this.idName, this.stats);
         this.skills = this.GetComponentsInChildren<Skill>();
+
 
         this.statusMods = new List<StatusMod>();
     }
@@ -46,12 +42,6 @@ public abstract class HeroesAndSlayers : MonoBehaviour
         }
 
         return modedStats;
-    }
-
-    protected void Die()
-    {
-        this.statusPanel.gameObject.SetActive(false);
-        this.gameObject.SetActive(false);
     }
 
     public abstract void InitTurn();
