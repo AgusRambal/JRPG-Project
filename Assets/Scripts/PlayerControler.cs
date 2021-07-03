@@ -16,7 +16,11 @@ public class PlayerControler : MonoBehaviour
 
     void Start()
     {
-        AudioTroughScenes.Pause();
+        if (AudioTroughScenes.instance != null)
+        {
+            AudioTroughScenes.Pause();
+        }
+
         movePoint.parent = null;
         Time.timeScale = 1f;
     }

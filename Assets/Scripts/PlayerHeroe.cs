@@ -16,7 +16,7 @@ public class PlayerHeroe : HeroesAndSlayers
 
     private void Awake()
     {
-        this.stats = new Stats(21, 1, 50, 45, 20);
+        this.stats = new Stats(21, 60, 50, 45, 20);
 
         gameOverText.SetActive(false);
         restartButton.SetActive(false);

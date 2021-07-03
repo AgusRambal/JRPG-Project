@@ -12,7 +12,7 @@ public class Enemy : HeroesAndSlayers
 
     private void Awake()
     {
-        this.stats = new Stats(50, 1, 40, 30, 60);
+        this.stats = new Stats(50, 50, 40, 30, 60);
         winButton.SetActive(false);
         winText.SetActive(false);
     }

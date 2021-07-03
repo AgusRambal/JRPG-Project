@@ -134,5 +134,4 @@ public class CombatManager : MonoBehaviour
         this.currentCharacterSkill = skill;
         this.combatStatus = CombatStatus.FIGHTER_ACTION;
     }
-
 }
