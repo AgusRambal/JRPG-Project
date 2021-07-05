@@ -82,10 +82,5 @@ sysinfo.txt
 
 *.unitypackage
 
-
-
-.DS_Store
-
 .npmrc
-
 .DS_Store

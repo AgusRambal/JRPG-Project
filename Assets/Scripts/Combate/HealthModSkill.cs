@@ -14,39 +14,29 @@ public class HealthModSkill : Skill
 
     public HealthModType modType;
 
-    [Range(0f, 6f)] public float critChance = 6; 
-
     protected override void OnRun()
     {
         float amount = this.GetModification();
 
         this.receiver.ModifyHealth(amount);
-
-        float dice = Random.Range(0f, 6f);
-
-        if (dice == critChance) //Aca podria poner diferentes danios
-        {
-            amount *= 2f;
-            this.messages.Enqueue("Critical Hit!");
-        }
     }
 
     public float GetModification()
     {
         switch (this.modType)
         {
-            case HealthModType.STAT_BASED:
+            case HealthModType.STAT_BASED: //Resta el daño en base a mis estadisticas y un dado D20
 
                 Stats emitterStats = this.emitter.GetCurrentStats();
                 Stats receiverStats = this.receiver.GetCurrentStats();
 
-                float rawDamage = (((2 * emitterStats.level) / 5) + 2) * this.amount * (emitterStats.attack / receiverStats.deffense);
+                float rawDamage = - ((Random.Range(1f, 20f)*emitterStats.level)/this.amount) * (emitterStats.attack / receiverStats.deffense);
 
-                return (rawDamage / 50) + 2;
+                return rawDamage;
 
-            case HealthModType.FIXED:
+            case HealthModType.FIXED: //Resta el daño puesto en el editor
                 return this.amount;
-            case HealthModType.PERCENTAGE:
+            case HealthModType.PERCENTAGE: //utiliza un porcentaje para curar
                 Stats rStats = this.receiver.GetCurrentStats();
 
                 return rStats.maxHealth * this.amount;

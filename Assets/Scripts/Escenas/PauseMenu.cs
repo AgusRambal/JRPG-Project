@@ -9,12 +9,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
 
 
-    private void Awake()
+    private void Awake() //Al arrancar la escena saco la pausa
     {
         Resume();
     }
 
-    void Update()
+    void Update() //Si aprieto escape pongo pausa y si vuelvo a apretar la saco
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -29,7 +29,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void Resume()
+    void Resume() //Pongo el tiempo en 1 y saco la pausa
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -37,7 +37,7 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    void Pause()
+    void Pause() //Pongo el tiempo en 0 y pongo la pausa (Este es el problema que solucione en el SceneSelection)
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;

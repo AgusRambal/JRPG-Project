@@ -23,12 +23,12 @@ public abstract class Skill : MonoBehaviour
          Destroy(go, this.animationDuration);
      }*/
 
-    private void Awake()
+    private void Awake() //Vacio el queue para poder poner los mensajes en el panel
     {
         this.messages = new Queue<string>();
     }
 
-    public void Run()
+    public void Run() //Utilizo el self inflicted para poder usar la curacion
     {
         if (this.selfInflicted)
         {
@@ -46,7 +46,7 @@ public abstract class Skill : MonoBehaviour
         this.receiver = _receiver;
     }
 
-    public string GetNextMessage()
+    public string GetNextMessage() //Resto de la queue el mensaje siguiente y chequeo si hay o no hay
     {
         if (this.messages.Count !=0)
         {

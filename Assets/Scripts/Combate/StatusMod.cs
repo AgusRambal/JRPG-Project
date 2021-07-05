@@ -13,7 +13,7 @@ public class StatusMod : MonoBehaviour
     public StatusModType type;
     public float amount;
 
-    public Stats Apply(Stats stats)
+    public Stats Apply(Stats stats) //Seteo el ataque y la defensa para se aplicados en el ataque basado en stats
     {
         Stats modedStats = stats.Clone();
 

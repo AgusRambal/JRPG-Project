@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue) //Hago aparece los nombres de quien esta hablando y las oraciones 
     {
         animator.SetBool("IsOpen", true);
 
@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNexSentence();
     }
 
-    public void DisplayNexSentence()
+    public void DisplayNexSentence() //Si ya no hay palabras, termina el dialogo
     {
         if (sentences.Count == 0)
         {
@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence(string sentence)
+    IEnumerator TypeSentence(string sentence) //Hago aparecer las palabras letra por letra
     {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())

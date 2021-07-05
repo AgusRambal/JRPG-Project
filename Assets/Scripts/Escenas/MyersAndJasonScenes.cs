@@ -16,7 +16,7 @@ public class MyersAndJasonScenes : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider) //Cuando estoy enfrente de los personajes, cambio a la escena elegida y pongo la transicion
     {
         if (collider.gameObject.tag.Equals("Player"))
         {

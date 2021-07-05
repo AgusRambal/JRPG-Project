@@ -8,7 +8,7 @@ public class Stats
     public float deffense;
     public float spirit;
 
-    public Stats(int level, float maxHealth, float attack, float deffense, float spirit)
+    public Stats(int level, float maxHealth, float attack, float deffense, float spirit) //Declaro los objetos de las estadisticas
     {
         this.level = level;
 

@@ -8,7 +8,7 @@ public class AudioTroughScenes : MonoBehaviour
     public static AudioTroughScenes instance;
     private void Awake()
     {
-        if (AudioTroughScenes.instance == null)
+        if (AudioTroughScenes.instance == null) //Si esta instancia de script esta en on el audio no se destruye al cambiar de escena, sino si
         {
             AudioTroughScenes.instance = this;
             DontDestroyOnLoad(gameObject);

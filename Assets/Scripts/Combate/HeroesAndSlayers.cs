@@ -24,7 +24,7 @@ public abstract class HeroesAndSlayers : MonoBehaviour
         this.statusMods = new List<StatusMod>();
     }
 
-    public void ModifyHealth(float amount)
+    public void ModifyHealth(float amount) //Seteo la vida en el panel y le pongo un maximo y un minimo
     {
         this.stats.health = Mathf.Clamp(this.stats.health + amount, 0f, this.stats.maxHealth);
 

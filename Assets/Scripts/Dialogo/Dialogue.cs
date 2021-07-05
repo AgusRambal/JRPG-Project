@@ -7,6 +7,6 @@ public class Dialogue
 {
     public string name;
 
-    [TextArea(3, 10)]
+    [TextArea(3, 10)] //Elijo en el editor cuantas frases va a haber, el nombre y lo que digan las mismas
     public string[] sentences;
 }

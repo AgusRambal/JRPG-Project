@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHeroe : HeroesAndSlayers
 {
@@ -9,29 +10,62 @@ public class PlayerHeroe : HeroesAndSlayers
 
     public GameObject gameOverText, restartButton, goPanel;
 
+    private Pociones powerUp;
+
+    private Pociones2 powerUp2;
+
+    private PlayerControler batttle;
+
+    public GameObject foto1, foto2;
+
     public bool isAlive
     {
-        get => stats.health > 0;
+        get => stats.health > 0; //El player esta vivo si tiene vida mayor a 0
     }
 
     private void Awake()
     {
-        this.stats = new Stats(21, 60, 50, 45, 20);
+        powerUp = FindObjectOfType<Pociones>();
+        powerUp2 = FindObjectOfType<Pociones2>();
 
-        gameOverText.SetActive(false);
-        restartButton.SetActive(false);
-        goPanel.SetActive(false);
+        if (batttle.battle == true)
+        {
+            stats = new Stats(21, 60, 50, 45, 20);
+        }
+        else
+        {
+            if (powerUp.havePowerUp == 0 && powerUp2.havePowerUp2 == 0)
+            {
+                stats = new Stats(21, 60, 50, 45, 20);
+            }
+
+            else if (powerUp.havePowerUp == 0 && powerUp2.havePowerUp2 == 2)
+            {
+                stats = new Stats(22, 60, 50, 45, 20);
+                foto2.SetActive(true);
+            }
+
+            else if (powerUp.havePowerUp == 1 && powerUp2.havePowerUp2 == 0)
+            {
+                stats = new Stats(21, 70, 50, 45, 20);
+                foto1.SetActive(true);
+            }
+
+            gameOverText.SetActive(false);
+            restartButton.SetActive(false);
+            goPanel.SetActive(false);
+        }
     }
 
     public void Update()
     {
         if (isAlive == false)
         {
-            Invoke("Die", 0.75f);
+            Invoke("Die", 0.75f); //si muero invoco la funcion die despues de 0.75s
         }
     }
 
-    public override void InitTurn()
+    public override void InitTurn() //En el comienzo del turno muestro el panel y muestro las skills con sus nombres
     {
         this.skillPanel.Show();
 
@@ -41,7 +75,7 @@ public class PlayerHeroe : HeroesAndSlayers
         }
     }
 
-    public void ExecuteSkill(int index)
+    public void ExecuteSkill(int index) //Ejecuto la funcion de la habilidad que presione y oculto el panel
     {
         this.skillPanel.Hide();
 

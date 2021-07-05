@@ -43,7 +43,7 @@ public class CombatManager : MonoBehaviour
         StartCoroutine(this.CombatLoop());
     }
 
-    IEnumerator CombatLoop()
+    IEnumerator CombatLoop() //Arranca el loop de la batalla
     {
         while (this.isCombatActive)
         {
@@ -53,7 +53,7 @@ public class CombatManager : MonoBehaviour
                     yield return null;
                     break;
 
-                case CombatStatus.FIGHTER_ACTION:
+                case CombatStatus.FIGHTER_ACTION: //Si es el turno de alguien, se espera a que ataque, y pone en panel que habilidad utilizo
                     LogPanel.Write($"{this.characters[this.characterindex].idName} uses {currentCharacterSkill.skillName}.");
                     yield return null;
                     currentCharacterSkill.Run();
@@ -63,7 +63,7 @@ public class CombatManager : MonoBehaviour
 
                     break;
 
-                case CombatStatus.CHECK_ACTION_MESSAGES:
+                case CombatStatus.CHECK_ACTION_MESSAGES: //Pone en panel los mensajes situacionales
 
                     string nextMessage = this.currentCharacterSkill.GetNextMessage();
 
@@ -81,7 +81,7 @@ public class CombatManager : MonoBehaviour
 
                     break; 
 
-                case CombatStatus.CHECK_FOR_VICTORY:
+                case CombatStatus.CHECK_FOR_VICTORY: //Se fija si esta muerto el palyer o el enemigo y sino, pasa de turno
 
                     if (hero.isAlive == false)
                     {
@@ -100,7 +100,7 @@ public class CombatManager : MonoBehaviour
                     yield return null;
                     break;
                     
-                case CombatStatus.NEXT_TURN:
+                case CombatStatus.NEXT_TURN: //Dice qquien tiene el turno y inicializa el initTurn para arrancar el mismo
                     yield return new WaitForSeconds(1f);
 
                     this.characterindex = (this.characterindex + 1) % this.characters.Length;

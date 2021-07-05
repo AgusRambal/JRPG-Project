@@ -6,7 +6,7 @@ public class DialogueTrigger2 : MonoBehaviour
 {
     public Dialogue dialogue;
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider) //Al llegar a la zona, salta el dialogo 2
     {
         if (collider.gameObject.tag.Equals("Player"))
         {

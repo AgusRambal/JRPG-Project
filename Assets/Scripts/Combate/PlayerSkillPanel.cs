@@ -9,7 +9,7 @@ public class PlayerSkillPanel : MonoBehaviour
     public GameObject[] skillButtons;
     public TextMeshProUGUI[] skillButtonLabels;
 
-    private void Awake()
+    private void Awake() //Oculto el panel y los botones
     {
         this.Hide();
 
@@ -19,13 +19,13 @@ public class PlayerSkillPanel : MonoBehaviour
         }
     }
 
-    public void ConfigureButtons(int index, string skillName)
+    public void ConfigureButtons(int index, string skillName) //Pongo el nombre de las skills en los paneles
     {
         this.skillButtons[index].SetActive(true);
         this.skillButtonLabels[index].text = skillName;
     }
 
-    public void Show()
+    public void Show() //Muestro las skills
     {
         this.gameObject.SetActive(true);
     }

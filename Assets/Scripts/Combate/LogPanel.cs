@@ -15,7 +15,7 @@ public class LogPanel : MonoBehaviour
         current = this;
     }
 
-    public static void Write(string message)
+    public static void Write(string message) //En el panel van a aparecer los mensajes situacionales
     {
         current.logLabel.text = message;
     }

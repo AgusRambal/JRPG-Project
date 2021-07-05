@@ -13,7 +13,7 @@ public class TriggerShop : MonoBehaviour
         house.SetActive(false);
         audioSrc = GetComponent<AudioSource>();
     }
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider) //Si entro en la zona del Shop, abro las puertas y pongo un sonido
     {
         if (collider.gameObject.tag.Equals("Player"))
         {
@@ -21,7 +21,7 @@ public class TriggerShop : MonoBehaviour
             audioSrc.PlayOneShot(doorSound);
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision) //Si salgo de la zona del shop cierro las puertas y pongo otro sonido
     {
         if (collision.gameObject.tag.Equals("Player"))
         {

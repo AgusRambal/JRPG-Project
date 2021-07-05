@@ -7,12 +7,12 @@ public class Enemy : HeroesAndSlayers
     public GameObject winText, winButton, goPanel;
     public bool isAlive
     {
-        get => stats.health > 0;
+        get => stats.health > 0; //El enemigo esta vivo si tiene vida mayor a 0
     }
 
     private void Awake()
     {
-        this.stats = new Stats(50, 50, 40, 30, 60);
+        this.stats = new Stats(20, 50, 40, 30, 60); //Estadisticas del enemigo
         winButton.SetActive(false);
         winText.SetActive(false);
     }
@@ -21,16 +21,16 @@ public class Enemy : HeroesAndSlayers
     {
         if (isAlive == false)
         {
-            Invoke("EnemyDie", 0.75f);
+            Invoke("EnemyDie", 0.75f); //En el update chequeo si el enemigo esta vivo, si no lo esta, invoco a la funcion de muerte despues de 0.75 segundos
         }
     }
 
     public override void InitTurn()
     {
-        StartCoroutine(this.IA());
+        StartCoroutine(this.IA()); //Se aplica la courrtina en el inico dle turno
     }
 
-    IEnumerator IA()
+    IEnumerator IA() //En esta corrutina el enemigo espera 1 segundo, selecciona una skill random de las que posee y la aplica 
     {
         yield return new WaitForSeconds(1f);
 
