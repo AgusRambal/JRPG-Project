@@ -7,7 +7,6 @@ public class Pociones2 : MonoBehaviour
     public GameObject fotoObjeto2;
     public int havePowerUp2;
     protected Stats _stats;
-    public bool battle2 = true;
 
     private void Awake()
     {
@@ -20,7 +19,6 @@ public class Pociones2 : MonoBehaviour
         {
             havePowerUp2 = 2;
             fotoObjeto2.SetActive(true);
-            battle2 = false;
         }
         else
         {

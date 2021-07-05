@@ -7,7 +7,6 @@ public class Pociones : MonoBehaviour
     public GameObject fotoObjeto1;
     public int havePowerUp;
     protected Stats _stats;
-    public bool battle = true;
 
     private void Awake()
     {
@@ -20,7 +19,6 @@ public class Pociones : MonoBehaviour
         {
             havePowerUp = 1;
             fotoObjeto1.SetActive(true);
-            battle = false;
         }
         else
         {

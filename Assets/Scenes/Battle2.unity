@@ -5264,8 +5264,8 @@ MonoBehaviour:
   gameOverText: {fileID: 1681488519}
   restartButton: {fileID: 430132377}
   goPanel: {fileID: 474481448}
-  foto1: {fileID: 1556176348}
-  foto2: {fileID: 2073087905}
+  foto1: {fileID: 550170714}
+  foto2: {fileID: 395241025}
 --- !u!212 &1585653130
 SpriteRenderer:
   m_ObjectHideFlags: 0

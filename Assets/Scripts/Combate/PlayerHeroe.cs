@@ -14,8 +14,6 @@ public class PlayerHeroe : HeroesAndSlayers
 
     private Pociones2 powerUp2;
 
-    private PlayerControler batttle;
-
     public GameObject foto1, foto2;
 
     public bool isAlive
@@ -25,16 +23,10 @@ public class PlayerHeroe : HeroesAndSlayers
 
     private void Awake()
     {
-        powerUp = FindObjectOfType<Pociones>();
+        powerUp = FindObjectOfType<Pociones>(); //accede a los scripts para llamar a las variables de los mismos
         powerUp2 = FindObjectOfType<Pociones2>();
 
-        if (batttle.battle == true)
-        {
-            stats = new Stats(21, 60, 50, 45, 20);
-        }
-        else
-        {
-            if (powerUp.havePowerUp == 0 && powerUp2.havePowerUp2 == 0)
+            if (powerUp.havePowerUp == 0 && powerUp2.havePowerUp2 == 0) //Condiciones para acceder a la batalla con un powerup o el otro
             {
                 stats = new Stats(21, 60, 50, 45, 20);
             }
@@ -54,7 +46,6 @@ public class PlayerHeroe : HeroesAndSlayers
             gameOverText.SetActive(false);
             restartButton.SetActive(false);
             goPanel.SetActive(false);
-        }
     }
 
     public void Update()
