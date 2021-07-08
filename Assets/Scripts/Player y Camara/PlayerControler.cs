@@ -17,34 +17,40 @@ public class PlayerControler : MonoBehaviour
     public Animator animator;
 
     private Pociones powerUp;
-
     private Pociones2 powerUp2;
-
-    public bool battle = true;
 
     void Start()
     {
-        if (AudioTroughScenes.instance != null) //Pongo pausa a la cancion inicializada en el menu
+        if (AudioTroughScenes.instance != null) //Pongo pausa a la cancion inicializada en el menu y utilizo un if para corregir el singletone
         {
             AudioTroughScenes.Pause();
-        } 
+        }
 
         movePoint.parent = null;
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; //arreglar la pausa
 
         powerUp = FindObjectOfType<Pociones>();
         powerUp2 = FindObjectOfType<Pociones2>();
 
-        if (powerUp.havePowerUp == 0 && powerUp2.havePowerUp2 == 2)
+
+        if (Pociones.instance!=null && Pociones2.instance2 != null) //if para corregir el singletone y activar dentro las fotos en el inventario
         {
-            objeto2a.SetActive(true);
+            if (powerUp.havePowerUp == 0 && powerUp2.havePowerUp2 == 2)
+            {
+                objeto2a.SetActive(true);
 
-        }
+            }
 
-        else if (powerUp.havePowerUp == 1 && powerUp2.havePowerUp2 == 0)
-        {
-            objeto1a.SetActive(true);
+            else if (powerUp.havePowerUp == 1 && powerUp2.havePowerUp2 == 0)
+            {
+                objeto1a.SetActive(true);
 
+            }
+            else if (powerUp.havePowerUp == 1 && powerUp2.havePowerUp2 == 2)
+            {
+                objeto2a.SetActive(true);
+                objeto1a.SetActive(true);
+            }
         }
     }
 
@@ -79,19 +85,17 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider) //Si compro esto, cambia stats
+    private void OnTriggerEnter2D(Collider2D collider) //Si compro esto, oculto las fotos de las pociones, tanto la que compre como la otra
     {
         if (collider.gameObject.tag.Equals("Objeto1"))
         {
             objeto1.SetActive(false);
             objeto2.SetActive(false);
-            battle = false;
         }
         else if (collider.gameObject.tag.Equals("Objeto2"))
         {
             objeto1.SetActive(false);
             objeto2.SetActive(false);
-            battle = false;
         }
     }
 

@@ -32,7 +32,7 @@ public abstract class HeroesAndSlayers : MonoBehaviour
         this.statusPanel.SetHealth(this.stats.health, this.stats.maxHealth);
     }
 
-    public Stats GetCurrentStats()
+    public Stats GetCurrentStats() //Reemplazo las stats por las stats modificadas cuando uso weak o rage
     {
         Stats modedStats = this.stats;
 

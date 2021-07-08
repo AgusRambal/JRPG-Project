@@ -26,7 +26,9 @@ public class PlayerHeroe : HeroesAndSlayers
         powerUp = FindObjectOfType<Pociones>(); //accede a los scripts para llamar a las variables de los mismos
         powerUp2 = FindObjectOfType<Pociones2>();
 
-            if (powerUp.havePowerUp == 0 && powerUp2.havePowerUp2 == 0) //Condiciones para acceder a la batalla con un powerup o el otro
+        if (Pociones.instance != null && Pociones2.instance2 != null)
+        {
+            if(powerUp.havePowerUp == 0 && powerUp2.havePowerUp2 == 0)
             {
                 stats = new Stats(21, 60, 50, 45, 20);
             }
@@ -42,6 +44,17 @@ public class PlayerHeroe : HeroesAndSlayers
                 stats = new Stats(21, 70, 50, 45, 20);
                 foto1.SetActive(true);
             }
+            else if (powerUp.havePowerUp == 1 && powerUp2.havePowerUp2 == 2)
+            {
+                stats = new Stats(22, 70, 50, 45, 20);
+                foto1.SetActive(true);
+                foto2.SetActive(true);
+            }
+        }
+        else
+        {
+            stats = new Stats(21, 60, 50, 45, 20);
+        }
 
             gameOverText.SetActive(false);
             restartButton.SetActive(false);

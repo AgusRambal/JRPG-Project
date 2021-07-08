@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Pociones : MonoBehaviour
 {
+    public static Pociones instance;
+
     public GameObject fotoObjeto1;
-    public int havePowerUp;
+    public int havePowerUp; //int para saber que agarre y actuar en el player controller y en el player heroe en base a eso
     protected Stats _stats;
 
-    private void Awake()
+    private void Awake() //Singletone creado para acceder desde el player controller y que no haya bugs
     {
-        DontDestroyOnLoad(gameObject);
+        if (Pociones.instance == null)
+        {
+            Pociones.instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider) //Si compro esto, cambia stats
@@ -18,7 +28,7 @@ public class Pociones : MonoBehaviour
         if (collider.gameObject.tag.Equals("Player"))
         {
             havePowerUp = 1;
-            fotoObjeto1.SetActive(true);
+            fotoObjeto1.SetActive(true); //Activo la foto en el inventario
         }
         else
         {

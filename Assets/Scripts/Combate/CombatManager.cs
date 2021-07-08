@@ -27,6 +27,8 @@ public class CombatManager : MonoBehaviour
 
     private Skill currentCharacterSkill;
 
+    private HealthModSkill damage;
+
     private void Start()
     {
         LogPanel.Write("Battle initiated");
